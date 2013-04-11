@@ -16,7 +16,7 @@ type Point struct {
 func main() {
 
   botPos := Point{0,0,0}
-  lowestCost := new(Point)
+  var lowestCost *Point
 
   reader := bufio.NewReader(os.Stdin)
 
@@ -34,7 +34,7 @@ func main() {
         if (cost == 0) {
           fmt.Println("CLEAN")
           os.Exit(0)
-        } else if lowestCost.cost == 0 || point.cost < lowestCost.cost {
+        } else if lowestCost == nil || point.cost < lowestCost.cost {
           lowestCost = &point
         }
       }
